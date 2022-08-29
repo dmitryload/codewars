@@ -12,19 +12,15 @@
 // (-1, 0) --> -1 (-1 + 0 = -1)
 // (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
 
-function getSum(a,b) {
-    let count = 0;
-    if (a === b) return a;
-    if(a < b){
-        for (; a <= b; a++){
-            count += a;
-        }
-    } else if (a > b){
-        for(; b <= a; b++){
-            count += b;
-        }
+function getSum(a,b){
+    if (a === b){
+        return a;
+    }else if (a > b){
+        return a + getSum(a-1,b)
+    } else {
+        return a + getSum(a+1,b)
     }
-    return count;
 }
+
 
 console.log(getSum(-64, 173))
